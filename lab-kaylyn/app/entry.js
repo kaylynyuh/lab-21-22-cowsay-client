@@ -1,33 +1,37 @@
 'use strict';
 
-// require webpack assets
+//require webpack assets
 require('./scss/main.scss');
 
-// npm modules
+//npm modules
 const cowsay = require('cowsay-browser');
 const angular = require('angular');
 
-// app modules
+//app modules
 
-// angular module
-const demoApp = angular.module('demoApp', []);
+//angular modules
+const demoApp = angular.module('demoApp', []); //create demoApp, this line is creative an angular module, it's a setter
 
-// angular constructus
-demoApp.controller('CowsayController', [ '$log', '$scope', CowsayController]);
+//angular-constructs
+demoApp.controller('CowsayController', ['$log', '$scope', CowsayController]); //controllers are always obj constructors
+//creating a controller on the demoApp module ^
 
-function CowsayController($log, $scope){
+function CowsayController($log, $scope){ //args have to be exact same order as dependency strings
   $log.debug('init CowsayController');
   let cowsayCtrl = $scope.cowsayCtrl = {};
   cowsayCtrl.title = 'Hellarz';
+  cowsayCtrl.show = false;
+  cowsayCtrl.state = null;
 
   cowsayCtrl.updateCow = function(input){
     $log.debug('cowsayCtrl.updateCow()');
-    return '\n' + cowsay.say({text: input || 'I need s*** to talk about!'});
+    return '\n' + cowsay.say({text: input || 'Give me some s*** to say'});
   };
 
-  cowsayCtrl.helloClick = function(input){
-    $log.debug('cowsayCtrl.helloClick()');
-    $log.log(input);
+  cowsayCtrl.repeatCow = function(input){
+    $log.debug('cowsayCtrl.repeatCow()');
+    cowsayCtrl.state = '\n' + cowsay.say({text: input});
+    return cowsayCtrl.show === false ? cowsayCtrl.show = true : cowsayCtrl.show = false;
   };
 
 }

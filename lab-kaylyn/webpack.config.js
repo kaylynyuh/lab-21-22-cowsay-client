@@ -20,7 +20,7 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/, //each obj is going to config loader chain for regex
-        loader: ExtractTextPlugin.extract('style', 'css!sass!'),
+        loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap'),
       },
     ],
   },

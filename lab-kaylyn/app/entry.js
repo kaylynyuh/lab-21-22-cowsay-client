@@ -13,7 +13,7 @@ const angular = require('angular');
 const demoApp = angular.module('demoApp', []); //create demoApp, this line is creative an angular module, it's a setter
 
 //angular-constructs
-demoApp.controller('CowsayController', ['$log', '$scope', CowsayController]); //controllers are always obj constructors
+demoApp.controller('CowsayController', ['$log', '$scope', CowsayController]); 
 //creating a controller on the demoApp module ^
 
 //controller constructor function

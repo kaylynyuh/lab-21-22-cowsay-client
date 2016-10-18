@@ -4,4 +4,19 @@ $app-font-color: #efefef;
 body {
   background-color: $app-bg;
   color: $app-font-color;
+  font-family: 'Helvetica';
+}
+
+input {
+  font-size: 1em;
+  border-radius: 1em;
+  border: none;
+}
+
+button {
+  font-size: 1em;
+  border-radius: 1em;
+  border: none;
+  background-color: #efefef;
+  margin-left: .75em;
 }

@@ -8,6 +8,8 @@
   </head>
   <body>
     <section ng-controller="CowsayController">
+      <!-- attaches the CowsayController to the DOM -->
+      <!-- now the cowsayCtrl.title property can be data bound to the template -->
       <h1>{{cowsayCtrl.title}}</h1>
       <input type="text" ng-model="cowsayCtrl.text">
       <button ng-click="cowsayCtrl.repeatCow(cowsayCtrl.text)">Click Me</button>

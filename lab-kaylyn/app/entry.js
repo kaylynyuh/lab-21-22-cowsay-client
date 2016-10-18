@@ -13,7 +13,7 @@ const angular = require('angular');
 const demoApp = angular.module('demoApp', []); //create demoApp, this line is creative an angular module, it's a setter
 
 //angular-constructs
-demoApp.controller('CowsayController', ['$log', '$scope', CowsayController]); 
+demoApp.controller('CowsayController', ['$log', '$scope', CowsayController]);
 //creating a controller on the demoApp module ^
 
 //controller constructor function
@@ -45,10 +45,29 @@ function CowsayController($log, $scope){
   //attach a resetCow () to cowsayCtrl that checks the length of state array, if it's 0, don't show else...
   cowsayCtrl.resetCow = function(){
     $log.debug('cowsayCtrl.resetCow()');
-
     cowsayCtrl.stateArray === 0 ? cowsayCtrl.show = false : cowsayCtrl.show = true;
     cowsayCtrl.state = cowsay.say({text: cowsayCtrl.stateArray.pop()});
     //invoke this method in the html to data bind to the template
   };
 
+  cowsay.list((err, cowfiles) => {
+    this.cowfiles = cowfiles;
+    this.currentCow = this.cowfiles[0];
+    console.log('this.cowfiles', this.cowfiles);
+  });
+}
+
+demoApp.controller('NavController', ['$log', NavController]);
+function NavController($log){
+  $log.debug('init NavController');
+  this.routes = [
+    {
+      name: 'Home',
+      url: '/home',
+    },
+    {
+      name: 'About',
+      url: '/about',
+    },
+  ];
 }

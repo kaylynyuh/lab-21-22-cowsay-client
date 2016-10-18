@@ -37,7 +37,18 @@ function CowsayController($log, $scope){
     $log.debug('cowsayCtrl.repeatCow()');
     cowsayCtrl.stateArray.push(input);
     cowsayCtrl.state = '\n' + cowsay.say({text: input});
-    return cowsayCtrl.show === false ? cowsayCtrl.show = true : cowsayCtrl.show = false;
+
+    if(cowsayCtrl.show === false) cowsayCtrl.show = true;
+  };
+
+
+  //attach a resetCow () to cowsayCtrl that checks the length of state array, if it's 0, don't show else...
+  cowsayCtrl.resetCow = function(){
+    $log.debug('cowsayCtrl.resetCow()');
+
+    cowsayCtrl.stateArray === 0 ? cowsayCtrl.show = false : cowsayCtrl.show = true;
+    cowsayCtrl.state = cowsay.say({text: cowsayCtrl.stateArray.pop()});
+    //invoke this method in the html to data bind to the template
   };
 
 }

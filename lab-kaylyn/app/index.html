@@ -12,7 +12,9 @@
       <!-- now the cowsayCtrl.title property can be data bound to the template -->
       <h1>{{cowsayCtrl.title}}</h1>
       <input type="text" ng-model="cowsayCtrl.text">
-      <button ng-click="cowsayCtrl.repeatCow(cowsayCtrl.text)">Click Me</button>
+      <button ng-click="cowsayCtrl.repeatCow(cowsayCtrl.text)">Click Here</button>
+      <button ng-click="cowsayCtrl.resetCow(cowsayCtrl.text)">Click Here to Reset</button>
+
       <!-- ng model creates a var and binds value of input to coolbeans var -->
       <pre>
         {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
@@ -20,9 +22,6 @@
       <pre ng-if="cowsayCtrl.show">
         {{cowsayCtrl.state}}
       </pre>
-      <button ng-click="cowsayCtrl.repeatCow(cowsayCtrl.text)">Click Me</button>
     </section>
-
-
   </body>
 </html>

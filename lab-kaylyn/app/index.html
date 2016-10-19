@@ -12,7 +12,7 @@
   <i class="fa fa-hand-scissors-o"></i>
   <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow='satanic'">
     <h1>{{cowsayCtrl.title}}</h1>
-    <form ng-submit="cowsayCtrl.repeat(cowsayCtrl.text)"
+    <form ng-submit="cowsayCtrl.duplicate(cowsayCtrl.text)"
     novalidate
     name="cowsayForm"
     ng-class="{'app-red': cowsayForm.$invalid}">

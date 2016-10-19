@@ -44,18 +44,3 @@ function CowsayController($log){
     this.state = this.stateArray.pop() || '';
   };
 }
-
-demoApp.controller('NavController', ['$log', NavController]);
-function NavController($log){
-  $log.debug('init NavController');
-  this.routes = [
-    {
-      name: 'Home',
-      url: '/home',
-    },
-    {
-      name: 'About',
-      url: '/about',
-    },
-  ];
-}

@@ -7,18 +7,10 @@
   <title>Cowsay Client</title>
 </head>
 <body>
-  <nav ng-controller="NavController as navCtrl">
-    <ul>
-      <!-- ng-repeat iterates through an array and gives you each obj -->
-      <li ng-repeat="navItem in navCtrl.routes">
-        <a ng-href="{{navItem.url}}">{{navItem.name}}</a>
-      </li>
-    </ul>
-  </nav>
-  <i class="fa fa-rocket"></i>
+  <i class="fa fa-hand-rock-o"></i>
+  <i class="fa fa-hand-paper-o"></i>
+  <i class="fa fa-hand-scissors-o"></i>
   <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow='satanic'">
-    <!-- attaches the CowsayController to the DOM -->
-    <!-- now the cowsayCtrl.title property can be data bound to the template -->
     <h1>{{cowsayCtrl.title}}</h1>
     <form ng-submit="cowsayCtrl.repeatCow(cowsayCtrl.text)"
     novalidate
@@ -36,8 +28,8 @@
   <pre>
     {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
   </pre>
-  <h3 ng-if="!cowsayCtrl.state"> THIS WILL BE REMOVED FROM DOM</h3>
-  <p ng-hide="cowsayCtrl.state"> Waiting for you to speak </p>
+  <h3 ng-if="!cowsayCtrl.state">THIS WILL BE REMOVED FROM DOM</h3>
+  <p ng-hide="cowsayCtrl.state">THIS WILL BE HIDDEN FROM DOM</p>
   <pre ng-show="cowsayCtrl.state">
     {{cowsayCtrl.state}}
   </pre>

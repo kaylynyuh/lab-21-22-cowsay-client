@@ -6,7 +6,8 @@
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-watch": "./node_modules/karma/bin/karma start",
+    "test": "./node_modules/karma/bin/karma start --single-run"
   },
   "repository": {
     "type": "git",
@@ -14,7 +15,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kaylynyuh/lab-21-22-cowsay-client/issues"
   },
@@ -31,13 +32,21 @@
     "font-awesome": "^4.6.3",
     "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.10.1",
-    "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^1.8.0",
     "webpack-dev-server": "^1.16.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }

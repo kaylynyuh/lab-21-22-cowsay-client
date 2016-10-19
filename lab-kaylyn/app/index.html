@@ -12,7 +12,7 @@
   <i class="fa fa-hand-scissors-o"></i>
   <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow='satanic'">
     <h1>{{cowsayCtrl.title}}</h1>
-    <form ng-submit="cowsayCtrl.repeatCow(cowsayCtrl.text)"
+    <form ng-submit="cowsayCtrl.repeat(cowsayCtrl.text)"
     novalidate
     name="cowsayForm"
     ng-class="{'app-red': cowsayForm.$invalid}">
@@ -23,10 +23,10 @@
       </option>
     </select>
     <button type="submit">Click Here</button>
-    <button type="button" ng-click="cowsayCtrl.resetCow()">Reset</button>
+    <button type="button" ng-click="cowsayCtrl.undo()">Reset</button>
   </form>
   <pre>
-    {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
+    {{cowsayCtrl.update(cowsayCtrl.text)}}
   </pre>
   <h3 ng-if="!cowsayCtrl.state">THIS WILL BE REMOVED FROM DOM</h3>
   <p ng-hide="cowsayCtrl.state">THIS WILL BE HIDDEN FROM DOM</p>

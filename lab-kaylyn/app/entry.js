@@ -19,7 +19,7 @@ demoApp.controller('CowsayController', ['$log', CowsayController]);
 function CowsayController($log){
   $log.debug('init CowsayController');
   this.title = 'Hellarz';
-  this.stateArray = [];
+  this.historyArray = [];
 
   cowsay.list((err, cowfiles) => {
     this.cowfiles = cowfiles;
@@ -27,20 +27,21 @@ function CowsayController($log){
     console.log('this.cowfiles', this.cowfiles);
   });
 
-  this.updateCow = function(input){
-    $log.debug('this.updateCow()');
+  this.update = function(input){
+    $log.debug('this.update()');
     return '\n' + cowsay.say({text: input || 'Give me some s*** to say', f: this.currentCow});
   };
 
-  this.repeatCow = function(input){
-    $log.debug('this.updateCow()');
-    this.state = this.updateCow(input);
-    this.stateArray.push(this.state);
+  this.repeat = function(input){
+    $log.debug('this.update()');
+    this.state = this.update(input);
+    this.historyArray.push(this.state);
   };
 
-  //attach a resetCow () to cowsayCtrl that checks the length of state array, if it's 0, don't show else...
-  this.resetCow = function(){
-    $log.debug('this.resetCow()');
-    this.state = this.stateArray.pop() || '';
+  //attach a undo () to cowsayCtrl that checks the length of state array, if it's 0, don't show else...
+  this.undo = function(){
+    $log.debug('this.undo()');
+    this.history.pop();
+    this.state = this.historyArray.pop() || '';
   };
 }

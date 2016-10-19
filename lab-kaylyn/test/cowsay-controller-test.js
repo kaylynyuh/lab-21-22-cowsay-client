@@ -60,6 +60,15 @@ describe('testing cowsayCtrl', function(){
       expect(this.cowsayCtrl.state).toEqual(expectedResult);
       expect(this.cowsayCtrl.historyArray[0]).toEqual(expectedResult);
     });
+
+    it('should return the default', () => {
+      //get mock result
+      //should return EXACTLY what updateCow is expecting, even with the newline
+      let expectedResult = '\n' + cowsay.say({text: 'Give me some s*** to say', f: this.cowsayCtrl.current});
+      this.cowsayCtrl.duplicate('');
+      expect(this.cowsayCtrl.state).toEqual(expectedResult);
+      expect(this.cowsayCtrl.historyArray[0]).toEqual(expectedResult);
+    });
   });
 
   describe('testing #undo()', () => {

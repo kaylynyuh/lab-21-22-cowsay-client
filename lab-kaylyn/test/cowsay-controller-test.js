@@ -17,8 +17,6 @@ describe('testing cowsayCtrl', function(){
     });
   });
 
-
-
   describe('testing initial properties', () => {
     it('title should equal Hellarz', () => {
       expect(this.cowsayCtrl.title).toBe('Hellarz');
@@ -43,6 +41,12 @@ describe('testing cowsayCtrl', function(){
       //should return EXACTLY what updateCow is expecting, even with the newline
       let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.current});
       let result = this.cowsayCtrl.update('hello');
+      expect(result).toEqual(expectedResult);
+    });
+
+    it('should return the default text value', () => {
+      let expectedResult = '\n' + cowsay.say({text: 'Give me some s*** to say', f: this.cowsayCtrl.current});
+      let result = this.cowsayCtrl.update('');
       expect(result).toEqual(expectedResult);
     });
   });

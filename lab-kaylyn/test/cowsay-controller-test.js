@@ -31,7 +31,7 @@ describe('testing cowsayCtrl', function(){
     it('cowfile should be same as cowsay.list', () => {
       cowsay.list((err, list) => {
         expect(this.cowsayCtrl.files).toEqual(list);
-        expect(this.cowsayCtrl.currentCow).toEqual(list[0]);
+        expect(this.cowsayCtrl.current).toEqual(list[0]);
       });
     });
   });
@@ -41,8 +41,8 @@ describe('testing cowsayCtrl', function(){
     it('should return a beavis.zen hello', () => {
       //get mock result
       //should return EXACTLY what updateCow is expecting, even with the newline
-      let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.currentCow});
-      let result = this.cowsayCtrl.updateCow('hello');
+      let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.current});
+      let result = this.cowsayCtrl.update('hello');
       expect(result).toEqual(expectedResult);
     });
   });
@@ -51,7 +51,7 @@ describe('testing cowsayCtrl', function(){
     it('should return a beavis.zen hello', () => {
       //get mock result
       //should return EXACTLY what updateCow is expecting, even with the newline
-      let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.currentCow});
+      let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.current});
       let result = this.cowsayCtrl.updateCow('hello');
       expect(result).toEqual(expectedResult);
     });
@@ -61,7 +61,7 @@ describe('testing cowsayCtrl', function(){
     it('should return a beavis.zen hello', () => {
       //get mock result
       //should return EXACTLY what updateCow is expecting, even with the newline
-      let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.currentCow});
+      let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.current});
       let result = this.cowsayCtrl.updateCow('hello');
       expect(result).toEqual(expectedResult);
     });

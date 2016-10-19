@@ -21,15 +21,15 @@ function CowsayController($log){
   this.title = 'Hellarz';
   this.historyArray = [];
 
-  cowsay.list((err, cowfiles) => {
-    this.cowfiles = cowfiles;
-    this.currentCow = this.cowfiles[0];
-    console.log('this.cowfiles', this.cowfiles);
+  cowsay.list((err, files) => {
+    this.files = files;
+    this.current = this.files[0];
+    console.log('this.files', this.files);
   });
 
   this.update = function(input){
     $log.debug('this.update()');
-    return '\n' + cowsay.say({text: input || 'Give me some s*** to say', f: this.currentCow});
+    return '\n' + cowsay.say({text: input || 'Give me some s*** to say', f: this.current});
   };
 
   this.repeat = function(input){

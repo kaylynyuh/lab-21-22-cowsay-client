@@ -52,8 +52,9 @@ describe('testing cowsayCtrl', function(){
       //get mock result
       //should return EXACTLY what updateCow is expecting, even with the newline
       let expectedResult = '\n' + cowsay.say({text: 'hello', f: this.cowsayCtrl.current});
-      let result = this.cowsayCtrl.updateCow('hello');
-      expect(result).toEqual(expectedResult);
+      this.cowsayCtrl.duplicate('hello');
+      expect(this.cowsayCtrl.state).toEqual(expectedResult);
+      expect(this.cowsayCtrl.historyArray[0]).toEqual(expectedResult);
     });
   });
 

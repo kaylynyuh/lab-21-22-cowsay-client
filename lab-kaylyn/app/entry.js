@@ -32,7 +32,7 @@ function CowsayController($log){
     return '\n' + cowsay.say({text: input || 'Give me some s*** to say', f: this.current});
   };
 
-  this.repeat = function(input){
+  this.duplicate = function(input){
     $log.debug('this.update()');
     this.state = this.update(input);
     this.historyArray.push(this.state);

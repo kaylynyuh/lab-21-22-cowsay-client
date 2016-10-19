@@ -4,6 +4,10 @@
 $app-bg: #444;
 $app-font-color: #efefef;
 
+.app-red * {
+  border: 2px solid red;
+}
+
 body {
   background-color: $app-bg;
   color: $app-font-color;

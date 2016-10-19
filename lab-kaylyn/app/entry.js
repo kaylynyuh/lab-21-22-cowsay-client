@@ -41,7 +41,7 @@ function CowsayController($log){
   //attach a undo () to cowsayCtrl that checks the length of state array, if it's 0, don't show else...
   this.undo = function(){
     $log.debug('this.undo()');
-    this.history.pop();
+    this.historyArray.pop();
     this.state = this.historyArray.pop() || '';
   };
 }

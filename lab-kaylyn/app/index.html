@@ -16,23 +16,31 @@
     </ul>
   </nav>
   <i class="fa fa-rocket"></i>
-  <section ng-controller="CowsayController as cowsayCtrl">
+  <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow='turtle'">
     <!-- attaches the CowsayController to the DOM -->
     <!-- now the cowsayCtrl.title property can be data bound to the template -->
     <h1>{{cowsayCtrl.title}}</h1>
+    <form ng-submit="cowsayCtrl.repeatCow(cowsayCtrl.text)"
+    novalidate
+    name="cowsayForm"
+    ng-class="{'app-red': cowsayForm.$invalid}">
     <input type="text" ng-model="cowsayCtrl.text">
     <select ng-model="cowsayCtrl.currentCow">
       <option ng-repeat="cowfile in cowsayCtrl.cowfiles" value="{{cowfile}}">
         {{cowfile}}
       </option>
-      <button ng-click="cowsayCtrl.repeatCow(cowsayCtrl.text)">Click Here</button>
-      <button ng-click="cowsayCtrl.resetCow(cowsayCtrl.text)">Click Here to Reset</button>
-      <pre>
-        {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
-      </pre>
-      <pre ng-if="cowsayCtrl.show">
-        {{cowsayCtrl.state}}
-      </pre>
-    </section>
-  </body>
-  </html>
+    </select>
+    <button ng-click="cowsayCtrl.repeatCow(cowsayCtrl.text)">Click Here</button>
+    <button ng-click="cowsayCtrl.resetCow(cowsayCtrl.text)">Click Here to Reset</button>
+  </form>
+  <pre>
+    {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
+  </pre>
+  <h3 ng-if="!cowsayCtrl.state"> THIS WILL BE REMOVED FROM DOM</h3>
+  <p ng-hide="cowsayCtrl.state"> Waiting for you to speak </p>
+  <pre ng-show="cowsayCtrl.state">
+    {{cowsayCtrl.state}}
+  </pre>
+</section>
+</body>
+</html>

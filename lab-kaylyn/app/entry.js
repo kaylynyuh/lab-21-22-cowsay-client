@@ -16,14 +16,9 @@ const demoApp = angular.module('demoApp', []); //create demoApp, this line is cr
 demoApp.controller('CowsayController', ['$log', CowsayController]);
 //creating a controller on the demoApp module ^
 
-//controller constructor function
-//$scope will create a new child scope
-//args have to be exact same order as dependency strings
 function CowsayController($log){
   $log.debug('init CowsayController');
   this.title = 'Hellarz';
-  this.show = false;
-  this.state = null;
   this.stateArray = [];
 
   cowsay.list((err, cowfiles) => {
@@ -34,22 +29,19 @@ function CowsayController($log){
 
   this.updateCow = function(input){
     $log.debug('this.updateCow()');
-    return '\n' + cowsay.say({text: input || 'Give me some s*** to say'});
+    return '\n' + cowsay.say({text: input || 'Give me some s*** to say', f: this.currentCow});
   };
 
   this.repeatCow = function(input){
-    $log.debug('this.repeatCow()');
-    this.stateArray.push(input);
-    this.state = '\n' + cowsay.say({text: input});
-    if(this.show === false) this.show = true;
+    $log.debug('this.updateCow()');
+    this.state = this.updateCow(input);
+    this.stateArray.push(this.state);
   };
 
   //attach a resetCow () to cowsayCtrl that checks the length of state array, if it's 0, don't show else...
   this.resetCow = function(){
     $log.debug('this.resetCow()');
-    this.stateArray === 0 ? this.show = false : this.show = true;
     this.state = this.stateArray.pop() || '';
-    //invoke this method in the html to data bind to the template
   };
 }
 

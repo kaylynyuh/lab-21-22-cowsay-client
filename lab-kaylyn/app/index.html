@@ -15,7 +15,7 @@
     <form ng-submit="cowsayCtrl.duplicate(cowsayCtrl.text)"
     novalidate
     name="cowsayForm"
-    ng-class="{'app-red': cowsayForm.$invalid}">
+    ng-class="{'app-red': cowsayForm.$invalid, 'app-green': cowsayForm.$valid}">
     <input type="text" ng-model="cowsayCtrl.text" required ng-minlength="4">
     <select ng-model="cowsayCtrl.currentCow">
       <option ng-repeat="cowfile in cowsayCtrl.files" value="{{cowfile}}">

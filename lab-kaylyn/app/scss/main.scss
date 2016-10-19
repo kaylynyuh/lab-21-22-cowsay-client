@@ -8,6 +8,10 @@ $app-font-color: #efefef;
   border: 2px solid red;
 }
 
+.app-green * {
+  border: 2px solid green;
+}
+
 body {
   background-color: $app-bg;
   color: $app-font-color;

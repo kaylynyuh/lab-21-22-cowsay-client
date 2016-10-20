@@ -17,9 +17,9 @@
     name="cowsayForm"
     ng-class="{'app-red': cowsayForm.$invalid, 'app-green': cowsayForm.$valid}">
     <input type="text" ng-model="cowsayCtrl.text" required ng-minlength="4">
-    <select ng-model="cowsayCtrl.currentCow">
-      <option ng-repeat="cowfile in cowsayCtrl.files" value="{{cowfile}}">
-        {{cowfile}}
+    <select ng-model="cowsayCtrl.current">
+      <option ng-repeat="file in cowsayCtrl.files" value="{{file}}">
+        {{file}}
       </option>
     </select>
     <button type="submit">Click Here</button>

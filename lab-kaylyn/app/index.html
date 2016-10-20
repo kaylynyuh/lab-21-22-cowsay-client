@@ -10,7 +10,7 @@
   <i class="fa fa-hand-rock-o"></i>
   <i class="fa fa-hand-paper-o"></i>
   <i class="fa fa-hand-scissors-o"></i>
-  <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow='satanic'">
+  <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.current='satanic'">
     <h1>{{cowsayCtrl.title}}</h1>
     <form ng-submit="cowsayCtrl.duplicate(cowsayCtrl.text)"
     novalidate
@@ -23,7 +23,7 @@
       </option>
     </select>
     <button type="submit">Click Here</button>
-    <button type="button" ng-click="cowsayCtrl.undo()">Reset</button>
+    <button type="button" ng-click="cowsayCtrl.undo()">Click Here To Go Back</button>
   </form>
   <pre>
     {{cowsayCtrl.update(cowsayCtrl.text)}}
